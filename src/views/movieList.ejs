@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <%- include('partials/nav'); %>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Movie List</h1>
+                <p class="lead">All my movies in one place.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <table class="table">
+                    <% for (i = 0; i < movieList.length; i++){ %>
+                        <tr>
+                            <td><a href="/movies/<%= movieList[i]._id %>"><%= movieList[i].title %></td>
+                            <td><%= movieList[i].year %></td>
+                            <td>
+                                <form method="POST" action="/movies/<%= movieList[i]._id %>?_method=delete" enctype="application/x-www-form-urlencoded">
+                                    <input type="submit" value="Delete" class="btn btn-danger" />
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>                    
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Add a new movie to your collection</h1>
+                <form method="POST" action="/movies">
+                    <input type="text" name="title">
+                    <input type="text" name="year">
+                    <input type="submit">
+                </form> 
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

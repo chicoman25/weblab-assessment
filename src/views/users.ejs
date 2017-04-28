@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <%- include('partials/nav'); %>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>A Bootstrap Starter Template</h1>
+                <p class="lead">Complete with pre-defined file paths that you won't have to change!!</p>
+                <ul class="list-unstyled">
+                    <% for (i = 0; i < userList.length; i++){ %>
+                    <li><%= userList[i].firstName %> <%= userList[i].lastName %></li>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Add a new movie to your collection</h1>
+                <p class="lead">Add movies to your collection!</p>
+                <form method="POST" action="/users">
+                    <input type="text" name="firstName">
+                    <input type="text" name="lastName">
+                    <input type="submit">
+                </form> 
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
